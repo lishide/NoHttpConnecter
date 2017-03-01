@@ -13,9 +13,19 @@
     tools:context="com.lishide.nohttpconnecter.activity.MainActivity">
 
     <Button
-        android:id="@+id/btn_getPost"
+        android:id="@+id/btn_get"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="GET / POST"/>
+        android:text="Get"/>
 
+    <Button
+        android:id="@+id/btn_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="POST"/>
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>
