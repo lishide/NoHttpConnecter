@@ -20,6 +20,8 @@ import com.yanzhenjie.nohttp.rest.Response;
  */
 public class CacheRequestFailedReadCacheActivity extends BaseActivity implements View.OnClickListener {
 
+    private TextView mTvCacheTip;
+
     @Override
     protected void initContentView(Bundle bundle) {
         setContentView(R.layout.activity_cache_demo);
@@ -29,15 +31,15 @@ public class CacheRequestFailedReadCacheActivity extends BaseActivity implements
     protected void initView() {
         Button mRvCacheReqStr = (Button) findViewById(R.id.rv_cache_req_str);
         Button mRvCacheReqImg = (Button) findViewById(R.id.rv_cache_req_img);
+        mTvCacheTip = (TextView) findViewById(R.id.tv_cache_tip);
         mRvCacheReqStr.setOnClickListener(this);
         mRvCacheReqImg.setOnClickListener(this);
-        TextView tvTip = new TextView(context);
-        tvTip.setText(getString(R.string.request_cache_request_failed_read_cache_tip));
     }
 
     @Override
     protected void initLogic() {
         mToolbar.setTitle(getString(R.string.title_cache_request_failed_read_cache_activity));
+        mTvCacheTip.setText(getString(R.string.request_cache_request_failed_read_cache_tip));
     }
 
     @Override
