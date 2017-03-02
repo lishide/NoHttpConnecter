@@ -9,15 +9,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.lishide.nohttpconnecter.R;
-import com.lishide.nohttpconnecter.adapter.MainFuncAdapter;
+import com.lishide.nohttpconnecter.adapter.RvMultiAdapter;
+import com.lishide.nohttpconnecter.entity.ListItemInfo;
+import com.lishide.nohttpconnecter.listener.OnItemClickListener;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private Context mContext;
     private RecyclerView mRvStartFunc;
-    private MainFuncAdapter mMainFuncAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +33,20 @@ public class MainActivity extends AppCompatActivity {
         mRvStartFunc.setLayoutManager(new LinearLayoutManager(this));
         mRvStartFunc.setItemAnimator(new DefaultItemAnimator());
 
-        List<String> titles = Arrays.asList(getResources().getStringArray(R.array.main_item_title));
-        List<String> descriptions = Arrays.asList(getResources().getStringArray(R.array.main_item_des));
-        mMainFuncAdapter = new MainFuncAdapter(titles, descriptions);
-        mRvStartFunc.setAdapter(mMainFuncAdapter);
-        mMainFuncAdapter.setOnItemClickListener((v, position) -> goItemPager(position));
+        List<ListItemInfo> listItems = new ArrayList<>();
+        String[] titles = getResources().getStringArray(R.array.main_item_title);
+        String[] titlesDes = getResources().getStringArray(R.array.main_item_des);
+        for (int i = 0; i < titles.length; i++) {
+            listItems.add(new ListItemInfo(titles[i], titlesDes[i]));
+        }
+        RvMultiAdapter mRvMultiAdapter = new RvMultiAdapter(listItems, mItemClickListener);
+        mRvStartFunc.setAdapter(mRvMultiAdapter);
     }
 
-    private void goItemPager(int position) {
+    /**
+     * list item 单击
+     */
+    private OnItemClickListener mItemClickListener = (v, position) -> {
         Intent intent = null;
         switch (position) {
             case 0:// 各种请求方法演示(GET, POST等等)
@@ -50,6 +57,6 @@ public class MainActivity extends AppCompatActivity {
         }
         if (intent != null)
             startActivity(intent);
-    }
+    };
 
 }
