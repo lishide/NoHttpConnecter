@@ -15,3 +15,16 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+# nohttp
+-dontwarn com.yolanda.nohttp.**
+-keep class com.yolanda.nohttp.**{*;}
+
+# nohttp-okhttp
+-dontwarn com.yanzhenjie.nohttp.**
+-keep class com.yanzhenjie.nohttp.**{*;}
+
+# okhttp
+-dontwarn okhttp3.**
+-keep class okhttp3.** { *;}
+-dontwarn okio.**
+-keep class okio.** { *;}

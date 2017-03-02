@@ -1,11 +1,10 @@
-package com.lishide.nohttpconnecter.dialog;
+package com.lishide.nohttputils.dialog;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.view.Window;
 
-import com.lishide.nohttpconnecter.R;
-
+import com.lishide.nohttputils.R;
 
 /**
  * Created in Oct 23, 2015 1:19:04 PM.

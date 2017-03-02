@@ -1,4 +1,4 @@
-package com.lishide.nohttpconnecter.utils;
+package com.lishide.nohttputils.utils;
 
 public class Constants {
 

@@ -1,10 +1,10 @@
-package com.lishide.nohttpconnecter.nohttp;
+package com.lishide.nohttputils.nohttp;
 
 import android.app.Activity;
 
-import com.lishide.nohttpconnecter.R;
-import com.lishide.nohttpconnecter.dialog.WaitDialog;
-import com.lishide.nohttpconnecter.utils.Toast;
+import com.lishide.nohttputils.R;
+import com.lishide.nohttputils.dialog.WaitDialog;
+import com.lishide.nohttputils.utils.Toast;
 import com.yanzhenjie.nohttp.Logger;
 import com.yanzhenjie.nohttp.error.NetworkError;
 import com.yanzhenjie.nohttp.error.NotFoundCacheError;

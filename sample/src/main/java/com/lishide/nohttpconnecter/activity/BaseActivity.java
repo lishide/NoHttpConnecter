@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.lishide.nohttpconnecter.R;
-import com.lishide.nohttpconnecter.nohttp.HttpListener;
-import com.lishide.nohttpconnecter.nohttp.HttpResponseListener;
+import com.lishide.nohttputils.nohttp.HttpListener;
+import com.lishide.nohttputils.nohttp.HttpResponseListener;
 import com.yanzhenjie.nohttp.NoHttp;
 import com.yanzhenjie.nohttp.rest.Request;
 import com.yanzhenjie.nohttp.rest.RequestQueue;

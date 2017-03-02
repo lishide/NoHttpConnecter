@@ -1,4 +1,4 @@
-package com.lishide.nohttpconnecter.utils;
+package com.lishide.nohttputils.utils;
 
 import android.content.Context;
 import android.support.annotation.StringRes;
