@@ -17,7 +17,7 @@ import com.yanzhenjie.nohttp.rest.Response;
 import java.util.List;
 import java.util.Locale;
 
-public class GetPostActivity extends BaseActivity implements View.OnClickListener {
+public class MethodActivity extends BaseActivity implements View.OnClickListener {
 
     private Button mBtnGet;
     private Button mBtnPost;
@@ -25,7 +25,7 @@ public class GetPostActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initContentView(Bundle bundle) {
-        setContentView(R.layout.activity_get_post);
+        setContentView(R.layout.activity_method);
     }
 
     @Override
@@ -37,6 +37,8 @@ public class GetPostActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initLogic() {
+        mToolbar.setTitle("各种请求协议演示");
+
         mBtnGet.setOnClickListener(this);
         mBtnPost.setOnClickListener(this);
 

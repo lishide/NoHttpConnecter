@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="main_item_title">
+        <item>1. 请求协议演示</item>
+    </string-array>
+
+    <string-array name="main_item_des">
+        <item>Http请求协议：GET、POST 等</item>
+    </string-array>
+</resources>
