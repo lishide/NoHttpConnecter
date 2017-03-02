@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.lishide.nohttpconnecter.R;
+import com.lishide.nohttpconnecter.activity.cache.CacheActivity;
 import com.lishide.nohttpconnecter.adapter.RvMultiAdapter;
 import com.lishide.nohttpconnecter.entity.ListItemInfo;
 import com.lishide.nohttpconnecter.listener.OnItemClickListener;
@@ -51,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
         switch (position) {
             case 0:// 各种请求方法演示(GET, POST等等)
                 intent = new Intent(mContext, MethodActivity.class);
+                break;
+            case 1:// 各种请求方法演示(GET, POST等等)
+                intent = new Intent(mContext, CacheActivity.class);
                 break;
             default:
                 break;

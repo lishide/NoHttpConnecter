@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.lishide.nohttpconnecter.R;
 import com.lishide.nohttputils.nohttp.HttpListener;
-import com.lishide.nohttputils.utils.Constants;
+import com.lishide.nohttpconnecter.utils.Constants;
 import com.yanzhenjie.nohttp.NoHttp;
 import com.yanzhenjie.nohttp.RequestMethod;
 import com.yanzhenjie.nohttp.rest.Request;

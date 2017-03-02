@@ -1,24 +1,22 @@
 package com.lishide.nohttpconnecter.activity;
 
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
 import com.lishide.nohttpconnecter.R;
+import com.lishide.nohttputils.dialog.ImageDialog;
 import com.lishide.nohttputils.nohttp.HttpListener;
 import com.lishide.nohttputils.nohttp.HttpResponseListener;
 import com.yanzhenjie.nohttp.NoHttp;
 import com.yanzhenjie.nohttp.rest.Request;
 import com.yanzhenjie.nohttp.rest.RequestQueue;
 
-/**
- * Created in 2017/1/1 15:09.
- *
- * @author Li Shide.
- */
 public abstract class BaseActivity extends AppCompatActivity {
     protected BaseActivity context;
     protected Toolbar mToolbar;
@@ -121,5 +119,62 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void setCenterTitle(int id) {
         mTvCenterTitle.setText(id);
+    }
+
+    /**
+     * Show message dialog.
+     *
+     * @param title   title.
+     * @param message message.
+     */
+    public void showMessageDialog(int title, int message) {
+        showMessageDialog(getText(title), getText(message));
+    }
+
+    /**
+     * Show message dialog.
+     *
+     * @param title   title.
+     * @param message message.
+     */
+    public void showMessageDialog(int title, CharSequence message) {
+        showMessageDialog(getText(title), message);
+    }
+
+    /**
+     * Show message dialog.
+     *
+     * @param title   title.
+     * @param message message.
+     */
+    public void showMessageDialog(CharSequence title, int message) {
+        showMessageDialog(title, getText(message));
+    }
+
+    /**
+     * Show message dialog.
+     *
+     * @param title   title.
+     * @param message message.
+     */
+    public void showMessageDialog(CharSequence title, CharSequence message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.setPositiveButton(R.string.txt_confirm, (dialog, which) -> dialog.dismiss());
+        builder.show();
+    }
+
+    /**
+     * 显示图片dialog。
+     *
+     * @param title  标题。
+     * @param bitmap 图片。
+     */
+    public void showImageDialog(CharSequence title, Bitmap bitmap) {
+        ImageDialog imageDialog = new ImageDialog(this);
+        imageDialog.setTitle(title);
+        imageDialog.setImage(bitmap);
+        imageDialog.show();
     }
 }

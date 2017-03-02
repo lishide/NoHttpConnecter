@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">NoHttpUtils</string>
-
+    <string name="txt_confirm">确定</string>
+    <string name="txt_cancel">取消</string>
     <string name="wait_dialog_title">正在请求，请稍候&#8230;</string>
 
     <!-- error -->

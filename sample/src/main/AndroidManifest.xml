@@ -25,6 +25,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MethodActivity"/>
+        <activity android:name=".activity.cache.CacheActivity"/>
+        <activity android:name=".activity.cache.CacheHttpActivity"/>
+        <activity android:name=".activity.cache.CacheNoneCacheRequestNetWorkActivity"/>
+        <activity android:name=".activity.cache.CacheOnlyReadCacheActivity"/>
+        <activity android:name=".activity.cache.CacheOnlyRequestNetworkActivity"/>
+        <activity android:name=".activity.cache.CacheRequestFailedReadCacheActivity"/>
     </application>
 
 </manifest>

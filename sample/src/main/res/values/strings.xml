@@ -1,4 +1,30 @@
 <resources>
     <string name="app_name">NoHttpConnecter</string>
+    <string name="req_str">请求 String</string>
+    <string name="req_img">请求 Image</string>
 
+    <!-- title field -->
+    <string name="title_method_activity">各种请求协议演示</string>
+    <string name="title_cache_activity">五种缓存策略</string>
+    <string name="title_cache_http_activity">Http标准协议的缓存</string>
+    <string name="title_cache_request_failed_read_cache_activity">请求网络失败返回缓存</string>
+    <string name="title_cache_none_request_network_activity">没有缓存才去请求网络</string>
+    <string name="title_cache_only_read_cache">仅仅读取缓存</string>
+    <string name="title_cache_only_request_network">仅仅请求网络</string>
+
+    <!-- Common -->
+    <string name="request_start">发起请求</string>
+    <string name="request_original_result">响应码：%1$d\n花费时间：%2$d毫秒。</string>
+
+    <string name="method_request_failed">有的方法为什么请求失败？</string>
+    <string name="method_request_failed_reason">在RFC2616中规定了Http1.1支持的请求方法，有些服务器、客户端(Android系统)不支持某些请求方法，所以请求失败是正常的，但是我们还是要遵守协议，推荐服务器和客户端都支持，这是非常好的设计和体验。</string>
+
+    <string name="request_succeed">请求成功</string>
+    <string name="request_failed">请求失败</string>
+
+    <!-- CacheStore -->
+    <string name="request_from_cache">结果来自缓存</string>
+    <string name="request_from_network">结果来自网络</string>
+    <string name="request_cache_request_failed_read_cache_tip">具体的可以看看代码，仅仅一句话设置缓存模式就可以了，测试的朋友，可以先成功请求一次，然后断网再请求，就会返回缓存啦！</string>
+    <string name="request_cache_only_read_cache_failed">缓存模式是Only_Read_Cache，但是没有找到缓存。</string>
 </resources>

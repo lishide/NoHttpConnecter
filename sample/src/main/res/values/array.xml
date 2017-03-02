@@ -2,9 +2,28 @@
 <resources>
     <string-array name="main_item_title">
         <item>1. 请求协议演示</item>
+        <item>6. 五种缓存策略</item>
     </string-array>
 
     <string-array name="main_item_des">
         <item>Http请求协议：GET、POST 等</item>
+        <item>没有缓存才请求网络、请求网络失败返回缓存、只请求网络、只读取缓存、Http标准协议。</item>
+    </string-array>
+
+    <!--五种缓存策略列表-->
+    <string-array name="activity_cache_entrance">
+        <item>Http标准协议缓存</item>
+        <item>请求网络失败返回缓存</item>
+        <item>没有缓存才去请求网络</item>
+        <item>仅仅读取缓存</item>
+        <item>仅仅请求网络</item>
+    </string-array>
+
+    <string-array name="activity_cache_entrance_des">
+        <item>NoHttp默认的缓存模式，严格遵守RFC2616协议。比如响应是Http304时，返回可用缓存。</item>
+        <item>请求网络失败后返回上次成功的数据，如果一次都没有请求成功过，则请求失败。</item>
+        <item>优先读取缓存，如果没有缓存才请求网络，请求回来后数据被缓存，下次可直接读取。</item>
+        <item>仅仅读取缓存，不去请求网络。没有缓存认为失败，异常类型为：NotFoundCacheError。</item>
+        <item>仅仅请求网络，请求网络时不会添加缓存头，请求回来的数据跟Http协议是否缓存。</item>
     </string-array>
 </resources>
