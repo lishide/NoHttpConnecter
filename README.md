@@ -1,6 +1,5 @@
 # NoHttpConnecter
 基于 NoHttp 的封装，主要包括字符串、Bitmap、JsonArray 等的 GET 和 POST 请求、文件上传下载方法的简单封装，以及五种缓存模式的使用。
-NoHttp：[https://github.com/yanzhenjie/NoHttp](https://github.com/yanzhenjie/NoHttp)
 
 首先对 NoHttp 网络框架做一个简介
 > Nohttp 是一个 Android Http 标准框架，底层可动态切换 OkHttp、URLConnection，与 RxJava 完美结合，支持缓存数据到数据库或 SD 卡（缓存数据自动加密），支持请求 Restful 风格的接口，比 Retrofit 更简单易用。
@@ -22,6 +21,8 @@ NoHttp：[https://github.com/yanzhenjie/NoHttp](https://github.com/yanzhenjie/No
 * 支持取消某个请求、取消指定多个请求、取消所有请求
 
 这么多好用的功能，难道你不想试试？
+
+NoHttp：[https://github.com/yanzhenjie/NoHttp](https://github.com/yanzhenjie/NoHttp)
 
 ### 使用方法
 
@@ -100,8 +101,11 @@ NoHttp.initialize(this, new NoHttp.Config()
 
 ---
 本人仅是简单地对 NoHttp 网络请求框架进行轻量级的封装，后期还会进行持续维护，更多关于 NoHttp 的使用可直接查看原作。
+
 **NoHttp —— 一个有情怀的网络框架 ，让你的网络请求更简单。**
+
 像上面说的一样，NoHttp 真的很强大、很好用，嗯，没错。
 
 未完待续。。。
+
 
