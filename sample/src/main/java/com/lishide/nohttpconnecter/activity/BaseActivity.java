@@ -11,11 +11,9 @@ import android.widget.TextView;
 
 import com.lishide.nohttpconnecter.R;
 import com.lishide.nohttputils.dialog.ImageDialog;
+import com.lishide.nohttputils.nohttp.CallServer;
 import com.lishide.nohttputils.nohttp.HttpListener;
-import com.lishide.nohttputils.nohttp.HttpResponseListener;
-import com.yanzhenjie.nohttp.NoHttp;
 import com.yanzhenjie.nohttp.rest.Request;
-import com.yanzhenjie.nohttp.rest.RequestQueue;
 
 public abstract class BaseActivity extends AppCompatActivity {
     protected BaseActivity context;
@@ -37,25 +35,17 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         initView();
         initLogic();
-        // 初始化请求队列，传入的参数是请求并发值。
-        mQueue = NoHttp.newRequestQueue(1);
-
     }
 
     //-------------- NoHttp -----------//
 
     /**
-     * 用来标记取消。
+     * 用来标记取消
      */
     private Object object = new Object();
 
     /**
-     * 请求队列。
-     */
-    private RequestQueue mQueue;
-
-    /**
-     * 发起请求。
+     * 发起请求
      *
      * @param what      what.
      * @param request   请求对象。
@@ -64,29 +54,18 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param isLoading 实现显示加载框。
      * @param <T>       想请求到的数据类型。
      */
-    public <T> void request(int what, Request<T> request, HttpListener<T> callback, boolean canCancel, boolean
-            isLoading) {
+    public <T> void request(int what, Request<T> request, HttpListener<T> callback,
+                            boolean canCancel, boolean isLoading) {
+        // 这里设置一个sign给这个请求
         request.setCancelSign(object);
-        mQueue.add(what, request, new HttpResponseListener<>(this, request, callback, canCancel, isLoading));
+        CallServer.getInstance().add(context, what, request, callback, canCancel, isLoading);
     }
 
     @Override
     protected void onDestroy() {
         // 和声明周期绑定，退出时取消这个队列中的所有请求，当然可以在你想取消的时候取消也可以，不一定和声明周期绑定。
-        mQueue.cancelBySign(object);
-
-        // 因为回调函数持有了activity，所以退出activity时请停止队列。
-        mQueue.stop();
-
+        CallServer.getInstance().cancelBySign(object);
         super.onDestroy();
-    }
-
-    protected void cancelAll() {
-        mQueue.cancelAll();
-    }
-
-    protected void cancelBySign(Object object) {
-        mQueue.cancelBySign(object);
     }
 
     // -------------------- BaseActivity的辅助封装 --------------------- //

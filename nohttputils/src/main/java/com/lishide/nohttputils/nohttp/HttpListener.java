@@ -3,10 +3,8 @@ package com.lishide.nohttputils.nohttp;
 import com.yanzhenjie.nohttp.rest.Response;
 
 /**
- * <p>接受回调结果.</p>
- * Created in 2017/1/1 15:09.
- *
- * @author Li Shide.
+ * Created by lishide on 2017/3/1.
+ * <p>接受回调结果</p>
  */
 public interface HttpListener<T> {
 

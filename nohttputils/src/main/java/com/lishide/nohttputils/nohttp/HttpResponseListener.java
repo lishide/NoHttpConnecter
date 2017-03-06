@@ -16,35 +16,34 @@ import com.yanzhenjie.nohttp.rest.Request;
 import com.yanzhenjie.nohttp.rest.Response;
 
 /**
- * Created in 2017/1/1 15:09.
- *
- * @author Li Shide.
+ * Created by lishide on 2017/3/1.
+ * NoHttp 请求
  */
 public class HttpResponseListener<T> implements OnResponseListener<T> {
 
     private Activity mActivity;
     /**
-     * Dialog.
+     * Dialog
      */
     private WaitDialog mWaitDialog;
     /**
-     * Request.
+     * Request
      */
     private Request<?> mRequest;
     /**
-     * 结果回调.
+     * 结果回调
      */
     private HttpListener<T> callback;
 
     /**
-     * @param activity     context用来实例化dialog.
-     * @param request      请求对象.
-     * @param httpCallback 回调对象.
-     * @param canCancel    是否允许用户取消请求.
-     * @param isLoading    是否显示dialog.
+     * @param activity     context用来实例化dialog
+     * @param request      请求对象
+     * @param httpCallback 回调对象
+     * @param canCancel    是否允许用户取消请求
+     * @param isLoading    是否显示dialog
      */
-    public HttpResponseListener(Activity activity, Request<?> request, HttpListener<T> httpCallback, boolean
-            canCancel, boolean isLoading) {
+    public HttpResponseListener(Activity activity, Request<?> request, HttpListener<T> httpCallback,
+                                boolean canCancel, boolean isLoading) {
         this.mActivity = activity;
         this.mRequest = request;
         if (activity != null && isLoading) {
@@ -56,7 +55,7 @@ public class HttpResponseListener<T> implements OnResponseListener<T> {
     }
 
     /**
-     * 开始请求, 这里显示一个dialog.
+     * 开始请求, 这里显示一个dialog
      */
     @Override
     public void onStart(int what) {
@@ -65,7 +64,7 @@ public class HttpResponseListener<T> implements OnResponseListener<T> {
     }
 
     /**
-     * 结束请求, 这里关闭dialog.
+     * 结束请求, 这里关闭dialog
      */
     @Override
     public void onFinish(int what) {
@@ -74,7 +73,7 @@ public class HttpResponseListener<T> implements OnResponseListener<T> {
     }
 
     /**
-     * 成功回调.
+     * 成功回调
      */
     @Override
     public void onSucceed(int what, Response<T> response) {
@@ -87,7 +86,7 @@ public class HttpResponseListener<T> implements OnResponseListener<T> {
     }
 
     /**
-     * 失败回调.
+     * 失败回调
      */
     @Override
     public void onFailed(int what, Response<T> response) {
