@@ -44,6 +44,7 @@ compile 'com.yanzhenjie.nohttp:okhttp:1.1.1'
 
 #### 3. 初始化
 初始化 NoHttp，并设置 NoHttp 底层采用那种网络框架去请求，建议把初始化方法放到 **Application** 中 *onCreate* 生命周期方法里面。还有别忘了在`manifest.xml`中注册`Application`。
+
 ```java
 //初始化 NoHttp
 NoHttp.initialize(this, new NoHttp.Config()
@@ -63,28 +64,40 @@ NoHttp.initialize(this, new NoHttp.Config()
 ```
 
 #### 4.接下来，你就可以愉快的进行网络请求了：
+
  - new 队列
-```java
-RequestQueue requestQueue = NoHttp.newRequestQueue();
-```
+
+  ```java
+  RequestQueue requestQueue = NoHttp.newRequestQueue();
+  ```
+
  - new 请求
-比如这样，
-```java
-Request<String> request = NoHttp.createStringRequest(url, RequestMethod.GET);
-```
- 或者这样，
-```java
-Request<JSONObject> objRequest = NoHttp.createJsonObjectRequest(url, RequestMethod.POST);
-```
+
+  比如这样，
+
+  ```java
+  Request<String> request = NoHttp.createStringRequest(url, RequestMethod.GET);
+  ```
+
+  或者这样，
+
+  ```java
+  Request<JSONObject> objRequest = NoHttp.createJsonObjectRequest(url, RequestMethod.POST);
+  ```
+
   ...等等（支持更多，如 JsonArray、Bitmap、byte[] 或自定义请求类型）。然后把需要的请求参数添加进来：
-```java
-.add("name", "name") // String类型
-...
-```
+
+  ```java
+  .add("name", "name") // String类型
+  ...
+  ```
+
  - 把请求添加到队列，完成请求
-```java
-requestQueue.add(what, request, responseListener);
-```
+
+  ```java
+  requestQueue.add(what, request, responseListener);
+  ```
+
  - 回调对象，接受请求结果
 
   处理成功、失败等方法的回调，实现当前界面的业务和逻辑。
