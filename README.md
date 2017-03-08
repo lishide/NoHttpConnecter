@@ -22,7 +22,7 @@
 
 这么多好用的功能，难道你不想试试？
 
-NoHttp：[https://github.com/yanzhenjie/NoHttp](https://github.com/yanzhenjie/NoHttp)
+NoHttp 开源框架地址：[https://github.com/yanzhenjie/NoHttp](https://github.com/yanzhenjie/NoHttp)
 
 ### 使用方法
 
@@ -44,6 +44,7 @@ compile 'com.yanzhenjie.nohttp:okhttp:1.1.1'
 
 #### 3. 初始化
 初始化 NoHttp，并设置 NoHttp 底层采用那种网络框架去请求，建议把初始化方法放到 **Application** 中 *onCreate* 生命周期方法里面。还有别忘了在`manifest.xml`中注册`Application`。
+
 ```java
 //初始化 NoHttp
 NoHttp.initialize(this, new NoHttp.Config()
@@ -63,31 +64,54 @@ NoHttp.initialize(this, new NoHttp.Config()
 ```
 
 #### 4.接下来，你就可以愉快的进行网络请求了：
+
  - new 队列
 
-        RequestQueue requestQueue = NoHttp.newRequestQueue();
+  ```java
+  RequestQueue requestQueue = NoHttp.newRequestQueue();
+  ```
 
  - new 请求
-比如这样，
-        Request<String> request = NoHttp.createStringRequest(url, RequestMethod.GET);
- 或者这样，
-       Request<JSONObject> objRequest = NoHttp.createJsonObjectRequest(url, RequestMethod.POST);
-...等等（支持更多，如 JsonArray、Bitmap、byte[] 或自定义请求类型）。然后把需要的请求参数添加进来：
 
-        .add("name", "name") // String类型
-        ...
+  比如这样，
+
+  ```java
+  Request<String> request = NoHttp.createStringRequest(url, RequestMethod.GET);
+  ```
+
+  或者这样，
+
+  ```java
+  Request<JSONObject> objRequest = NoHttp.createJsonObjectRequest(url, RequestMethod.POST);
+  ```
+
+  ...等等（支持更多，如 JsonArray、Bitmap、byte[] 或自定义请求类型）。然后把需要的请求参数添加进来：
+
+  ```java
+  .add("name", "name") // String类型
+  ...
+  ```
+
  - 把请求添加到队列，完成请求
 
-        requestQueue.add(what, request, responseListener);
+  ```java
+  requestQueue.add(what, request, responseListener);
+  ```
+
  - 回调对象，接受请求结果
-处理成功、失败等方法的回调，实现当前界面的业务和逻辑。
+
+  处理成功、失败等方法的回调，实现当前界面的业务和逻辑。
 
   > * 添加请求到队列时有一个what，这个what会在`responseLisetener`响应时回调回来，所以可以用一个`responseLisetener`接受多个请求的响应，用 what 来区分结果。
   > * **强烈建议**把生成队列写成懒汉单例模式，因为每新建队列就会 new 出相应个数的线程来，同时只有线程数固定了，队列的作用才会发挥到最大。
 
- - 取消请求（在组件销毁的时候（*onDestroy()*）调用队列的按照 sign 取消的方法即可取消）
+ - 取消请求
+
+  在组件销毁的时候（*onDestroy()*）调用队列的按照 sign 取消的方法即可取消
 
 这时我们发现有很多重复的操作，每个 Activity 和 Fragment 都这么写就显得有点麻烦了，再加上上面的两条重要提示，所以我们这里把队列进行单例模式封装，并把这些操作封装在 `BaseActivity`、`BaseFragment` 中。
+
+**对 NoHttp 的封装，请看源码：HttpResponseListener、HttpListener、CallServer、BaseActivity 等。**
 
 ### 五大缓存模式
  - 1、Default 模式，实现 http304 重定向缓存
@@ -107,5 +131,3 @@ NoHttp.initialize(this, new NoHttp.Config()
 像上面说的一样，NoHttp 真的很强大、很好用，嗯，没错。
 
 未完待续。。。
-
-
