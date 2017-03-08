@@ -26,4 +26,14 @@ public class Constants {
      * 请求图片的接口，支持各种方法。
      */
     public static final String URL_NOHTTP_IMAGE = SERVER + "image";
+
+    /**
+     * 下载文件。
+     */
+    public static final String[] URL_DOWNLOADS = {
+            "http://api.nohttp.net/download/1.apk",
+            "http://api.nohttp.net/download/2.apk",
+            "http://api.nohttp.net/download/3.apk",
+            "http://api.nohttp.net/download/4.apk"
+    };
 }

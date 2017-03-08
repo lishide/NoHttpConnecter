@@ -32,6 +32,7 @@
         <activity android:name=".activity.cache.CacheOnlyRequestNetworkActivity"/>
         <activity android:name=".activity.cache.CacheRequestFailedReadCacheActivity"/>
         <activity android:name=".activity.HttpsActivity"/>
+        <activity android:name=".activity.DownloadFileActivity"/>
     </application>
 
 </manifest>

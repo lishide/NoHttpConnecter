@@ -35,4 +35,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     // NoHttp
     compile 'com.yanzhenjie.nohttp:okhttp:1.1.1'
+    // Android 6.0 以上权限申请
+    compile 'com.yanzhenjie:permission:1.0.5'
 }

@@ -29,4 +29,32 @@
     <string name="request_from_network">结果来自网络</string>
     <string name="request_cache_request_failed_read_cache_tip">具体的可以看看代码，仅仅一句话设置缓存模式就可以了，测试的朋友，可以先成功请求一次，然后断网再请求，就会返回缓存啦！</string>
     <string name="request_cache_only_read_cache_failed">缓存模式是Only_Read_Cache，但是没有找到缓存。</string>
+
+    <!-- Download -->
+    <string name="upload_file_status">文件状态：</string>
+    <string name="upload_file_status_wait">等待操作&#8230;</string>
+
+    <string name="download_file_single">单个文件下载</string>
+    <string name="download_file_multi">多个文件下载</string>
+    <string name="download_file_start">开始下载</string>
+    <string name="download_file_delete">删除文件</string>
+    <string name="delete_succeed">删除成功</string>
+    <!-- Download status -->
+    <string name="download_progress">已下载：%1$d&#037;&#037;，速度：%2$skb&#047;s</string>
+    <string name="download_status_pause">暂停</string>
+    <string name="download_status_be_pause">下载被暂停</string>
+    <string name="download_status_re_download">重新下载</string>
+    <string name="download_status_again_download">再次尝试</string>
+    <string name="download_status_resume">继续下载</string>
+    <string name="download_status_finish">下载完成！</string>
+    <!-- Download error -->
+    <string name="download_error">下载出错了：%1$s</string>
+    <string name="download_error_server">服务器数据错误！</string>
+    <string name="download_error_network">网络不可用，请检查网络！</string>
+    <string name="download_error_storage">存储卡错误，请检查存储卡！</string>
+    <string name="download_error_space">存储卡空间不足！</string>
+    <string name="download_error_timeout">下载超时！</string>
+    <string name="download_error_un_know_host">找不到服务器</string>
+    <string name="download_error_url">URL地址错误</string>
+    <string name="download_error_un">未知错误</string>
 </resources>
