@@ -2,6 +2,8 @@
     <string name="app_name">NoHttpConnecter</string>
     <string name="req_str">请求 String</string>
     <string name="req_img">请求 Image</string>
+    <string name="txt_https_verify">Https证书请求</string>
+    <string name="txt_https_no_verify">免Https证书请求</string>
 
     <!-- title field -->
     <string name="title_method_activity">各种请求协议演示</string>

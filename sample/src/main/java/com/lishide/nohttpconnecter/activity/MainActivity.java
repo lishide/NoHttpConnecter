@@ -56,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
             case 1:// 各种请求方法演示(GET, POST等等)
                 intent = new Intent(mContext, CacheActivity.class);
                 break;
+            case 2:// https请求
+                intent = new Intent(mContext, HttpsActivity.class);
+                break;
             default:
                 break;
         }

@@ -15,24 +15,17 @@
         android:padding="10dp">
 
         <Button
-            android:id="@+id/btn_cache_req_str"
+            android:id="@+id/btn_https_verify"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/req_str"/>
+            android:text="@string/txt_https_verify"/>
 
         <Button
-            android:id="@+id/btn_cache_req_img"
+            android:id="@+id/btn_https_no_verify"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/req_img"/>
+            android:text="@string/txt_https_no_verify"/>
 
-        <TextView
-            android:id="@+id/tv_cache_tip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"/>
     </LinearLayout>
 
 </LinearLayout>

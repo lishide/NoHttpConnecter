@@ -10,9 +10,13 @@ import com.yanzhenjie.nohttp.cache.DBCacheStore;
 import com.yanzhenjie.nohttp.cookie.DBCookieStore;
 
 public class MyApplication extends Application {
+    private static Application _instance;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        _instance = this;
+
         //初始化 NoHttp
         NoHttp.initialize(this, new NoHttp.Config()
                 .setConnectTimeout(30 * 1000)  // 设置全局连接超时时间，单位毫秒，默认10s。
@@ -32,5 +36,9 @@ public class MyApplication extends Application {
         Logger.setDebug(BuildConfig.DEBUG);// 开启NoHttp的调试模式, 配置后可看到请求过程、日志和错误信息。
         Logger.setTag("NoHttpSample");// 设置NoHttp打印Log的tag。
 
+    }
+
+    public static Application getInstance() {
+        return _instance;
     }
 }

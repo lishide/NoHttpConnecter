@@ -35,10 +35,10 @@ public class CacheHttpActivity extends BaseActivity implements View.OnClickListe
 
     @Override
     protected void initView() {
-        Button mRvCacheReqStr = (Button) findViewById(R.id.rv_cache_req_str);
-        Button mRvCacheReqImg = (Button) findViewById(R.id.rv_cache_req_img);
-        mRvCacheReqStr.setOnClickListener(this);
-        mRvCacheReqImg.setOnClickListener(this);
+        Button mBtnCacheReqStr = (Button) findViewById(R.id.btn_cache_req_str);
+        Button mBtnCacheReqImg = (Button) findViewById(R.id.btn_cache_req_img);
+        mBtnCacheReqStr.setOnClickListener(this);
+        mBtnCacheReqImg.setOnClickListener(this);
     }
 
     @Override
@@ -49,10 +49,10 @@ public class CacheHttpActivity extends BaseActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.rv_cache_req_str:
+            case R.id.btn_cache_req_str:
                 requestString();
                 break;
-            case R.id.rv_cache_req_img:
+            case R.id.btn_cache_req_img:
                 requestImage();
                 break;
         }

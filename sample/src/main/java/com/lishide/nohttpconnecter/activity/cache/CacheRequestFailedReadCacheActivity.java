@@ -29,11 +29,11 @@ public class CacheRequestFailedReadCacheActivity extends BaseActivity implements
 
     @Override
     protected void initView() {
-        Button mRvCacheReqStr = (Button) findViewById(R.id.rv_cache_req_str);
-        Button mRvCacheReqImg = (Button) findViewById(R.id.rv_cache_req_img);
+        Button mBtnCacheReqStr = (Button) findViewById(R.id.btn_cache_req_str);
+        Button mBtnCacheReqImg = (Button) findViewById(R.id.btn_cache_req_img);
         mTvCacheTip = (TextView) findViewById(R.id.tv_cache_tip);
-        mRvCacheReqStr.setOnClickListener(this);
-        mRvCacheReqImg.setOnClickListener(this);
+        mBtnCacheReqStr.setOnClickListener(this);
+        mBtnCacheReqImg.setOnClickListener(this);
     }
 
     @Override
@@ -45,10 +45,10 @@ public class CacheRequestFailedReadCacheActivity extends BaseActivity implements
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.rv_cache_req_str:
+            case R.id.btn_cache_req_str:
                 requestString();
                 break;
-            case R.id.rv_cache_req_img:
+            case R.id.btn_cache_req_img:
                 requestImage();
                 break;
         }
