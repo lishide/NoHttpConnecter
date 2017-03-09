@@ -30,6 +30,15 @@
     <string name="request_cache_request_failed_read_cache_tip">具体的可以看看代码，仅仅一句话设置缓存模式就可以了，测试的朋友，可以先成功请求一次，然后断网再请求，就会返回缓存啦！</string>
     <string name="request_cache_only_read_cache_failed">缓存模式是Only_Read_Cache，但是没有找到缓存。</string>
 
+    <!-- Upload and download -->
+    <string name="upload_start">开始上传</string>
+    <string name="upload_succeed">上传完毕</string>
+    <string name="upload_failed">上传失败</string>
+    <string name="upload_cancel">上传被取消</string>
+    <string name="upload_error">上传发生错误</string>
+    <!-- Upload -->
+    <string name="upload_request_demo">上传文件示例</string>
+    <string name="upload_request_test">附我公司上传方法，详见代码和注释</string>
     <!-- Download -->
     <string name="upload_file_status">文件状态：</string>
     <string name="upload_file_status_wait">等待操作&#8230;</string>

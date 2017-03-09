@@ -4,6 +4,7 @@
         <item>1. 请求协议演示</item>
         <item>五种缓存策略</item>
         <item>Https请求</item>
+        <item>文件上传</item>
         <item>文件下载</item>
     </string-array>
 
@@ -11,7 +12,8 @@
         <item>Http请求协议：GET、POST 等</item>
         <item>没有缓存才请求网络、请求网络失败返回缓存、只请求网络、只读取缓存、Http标准协议。</item>
         <item>SSL证书、自签名证书、免证书Https访问等，使用Java通用API SocketFactory设置即可。</item>
-        <item>文件下载演示，多文件下载，断点续传下载，暂停下载等，有错误、进度等通知开发者。</item>
+        <item>支持大文件、多文件、图片、二进制流等的上传，通过Binary接口，支持进度通知，取消上传等。</item>
+        <item>文件下载演示，多文件下载，断点续传下载，暂停下载等，有错误、进度等通知用户。</item>
     </string-array>
 
     <!--五种缓存策略列表-->

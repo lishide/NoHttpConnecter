@@ -7,7 +7,12 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
 
+    <!--声明使用相机-->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true"/>
     <application
         android:name="com.lishide.nohttpconnecter.application.MyApplication"
         android:allowBackup="true"
@@ -15,6 +20,16 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <!--以下两个activity的声明用来打开图片选择器界面-->
+        <activity
+            android:name="cn.finalteam.rxgalleryfinal.ui.activity.MediaActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".activity.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
@@ -33,6 +48,7 @@
         <activity android:name=".activity.cache.CacheRequestFailedReadCacheActivity"/>
         <activity android:name=".activity.HttpsActivity"/>
         <activity android:name=".activity.DownloadFileActivity"/>
+        <activity android:name=".activity.UploadSingleFileActivity"/>
     </application>
 
 </manifest>

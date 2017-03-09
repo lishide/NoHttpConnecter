@@ -59,7 +59,10 @@ public class MainActivity extends AppCompatActivity {
             case 2:// https请求
                 intent = new Intent(mContext, HttpsActivity.class);
                 break;
-            case 3:// 文件下载
+            case 3:// 文件上传
+                intent = new Intent(mContext, UploadSingleFileActivity.class);
+                break;
+            case 4:// 文件下载
                 intent = new Intent(mContext, DownloadFileActivity.class);
                 break;
             default:

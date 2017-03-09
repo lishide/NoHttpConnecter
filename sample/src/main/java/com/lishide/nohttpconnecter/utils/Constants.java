@@ -26,7 +26,10 @@ public class Constants {
      * 请求图片的接口，支持各种方法。
      */
     public static final String URL_NOHTTP_IMAGE = SERVER + "image";
-
+    /**
+     * 上传文件接口。
+     */
+    public static final String URL_NOHTTP_UPLOAD = SERVER + "upload";
     /**
      * 下载文件。
      */
