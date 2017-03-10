@@ -115,11 +115,134 @@ NoHttp.initialize(this, new NoHttp.Config()
 
 ### 五大缓存模式
  - 1、Default 模式，实现 http304 重定向缓存
+
+  ```java
+  request.setCacheMode(CacheMode.DEFAULT);
+  ```
+
  - 2、请求网络失败返回缓存
+
+  ```java
+  request.setCacheMode(CacheMode.REQUEST_NETWORK_FAILED_READ_CACHE);
+  ```
+
  - 3、没有缓存才去请求网络
+
+  ```java
+  request.setCacheMode(CacheMode.NONE_CACHE_REQUEST_NETWORK);
+  ```
+
  - 4、仅仅请求网络
+
+  ```java
+  request.setCacheMode(CacheMode.ONLY_REQUEST_NETWORK);
+  ```
+
  - 5、仅仅读取缓存
 
+  ```java
+  request.setCacheMode(CacheMode.ONLY_READ_CACHE);
+  ```
+
+### 文件下载
+ - 1、单个文件下载
+ - 2、多个文件下载
+
+文件下载也是队列，队列和开头所说的请求的队列是一样的。
+
+ - 发起下载请求
+
+  ```java
+  mDownloadRequest = NoHttp.createDownloadRequest(url, path, filename, true, true);
+  downloadQueue.add(0, mDownloadRequest, downloadListener);
+  ```
+
+ - 暂停或者停止下载
+
+  ```java
+  mDownloadRequest.cancel();
+  ```
+
+ - 监听下载过程
+
+  ```java
+  private DownloadListener downloadListener = new DownloadListener() {
+
+	// 下载开始
+    @Override
+    public void onStart(int what, boolean isResume, long beforeLength, Headers headers, long allCount) {
+
+    }
+
+	// 下载发生错误
+    @Override
+    public void onDownloadError(int what, Exception exception) {
+
+    }
+
+	// 更新下载进度和下载网速
+    @Override
+    public void onProgress(int what, int progress, long fileCount, long speed) {
+
+    }
+
+	// 下载完成
+    @Override
+    public void onFinish(int what, String filePath) {
+
+    }
+
+	// 下载被取消或者暂停
+    @Override
+    public void onCancel(int what) {
+
+    }
+};
+  ```
+
+关于文件下载，具体的请参考 Demo。
+
+### 文件上传
+ - 1、单个文件上传
+
+  ```java
+  Request<String> request = NoHttp.createStringRequest(url, RequestMethod.POST);
+  request.add("file", new FileBinary(file));
+  ```
+
+ - 2、多个文件上传
+ 	这里可以添加各种形式的文件，File、Bitmap、InputStream、ByteArray
+ 	- **多个Key多个文件形式**
+    ```java
+    Request<String> request = ...
+    request.add("file1", new FileBinary(File));
+    request.add("file2", new FileBinary(File));
+    request.add("file3", new InputStreamBinary(InputStream));
+    request.add("file4", new ByteArrayBinary(byte[]));
+    request.add("file5", new BitmapBinary(Bitmap));
+    ```
+
+ 	- **一个Key多个文件形式**
+
+    ```java
+    Request<String> request = ...
+    fileList.add("image", new FileBinary(File));
+    fileList.add("image", new InputStreamBinary(InputStream));
+    fileList.add("image", new ByteArrayBinary(byte[]));
+    fileList.add("image", new BitmapBinary(Bitmap));
+    ```
+
+	或者：
+
+    ```java
+    Request<String> request = ...
+    List<Binary> fileList = ...
+    fileList.add(new FileBinary(File));
+    fileList.add(new InputStreamBinary(InputStream));
+    fileList.add(new ByteArrayBinary(byte[]));
+    fileList.add(new BitmapStreamBinary(Bitmap));
+    request.add("file_list", fileList);
+    ```
 
 ......
 
