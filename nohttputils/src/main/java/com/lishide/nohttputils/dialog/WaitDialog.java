@@ -7,9 +7,7 @@ import android.view.Window;
 import com.lishide.nohttputils.R;
 
 /**
- * Created in Oct 23, 2015 1:19:04 PM.
- *
- * @author Yan Zhenjie.
+ * 加载等待 Dialog
  */
 public class WaitDialog extends ProgressDialog {
 

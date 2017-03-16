@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.lishide.nohttpconnecter.R;
-import com.lishide.nohttputils.dialog.ImageDialog;
+import com.lishide.nohttpconnecter.view.dialog.ImageDialog;
 import com.lishide.nohttputils.nohttp.CallServer;
 import com.lishide.nohttputils.nohttp.HttpListener;
 import com.yanzhenjie.nohttp.rest.Request;

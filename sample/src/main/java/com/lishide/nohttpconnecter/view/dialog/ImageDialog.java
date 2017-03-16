@@ -1,10 +1,9 @@
-package com.lishide.nohttputils.dialog;
+package com.lishide.nohttpconnecter.view.dialog;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AlertDialog;
-import android.view.View;
 import android.widget.ImageView;
 
 public class ImageDialog extends AlertDialog.Builder {
@@ -17,12 +16,13 @@ public class ImageDialog extends AlertDialog.Builder {
         super(context);
         imageView = new ImageView(getContext());
         setView(imageView);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        /*imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dismiss();
             }
-        });
+        });*/
+        imageView.setOnClickListener(v -> dismiss());
     }
 
     public void setImage(int image) {
