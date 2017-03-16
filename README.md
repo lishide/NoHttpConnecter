@@ -243,8 +243,8 @@ request(0, request, httpListener, true, true);
   request.add("file", new FileBinary(file));
   ```
 
- - 2、多个文件上传
- 	这里可以添加各种形式的文件，File、Bitmap、InputStream、ByteArray
+ - 2、多个文件上传（这里可以添加各种形式的文件，File、Bitmap、InputStream、ByteArray。）
+
  	- **多个Key多个文件形式**
     ```java
     Request<String> request = ...
