@@ -113,6 +113,39 @@ NoHttp.initialize(this, new NoHttp.Config()
 
 **对 NoHttp 的封装，请看源码：HttpResponseListener、HttpListener、CallServer、BaseActivity 等。**
 
+**现已将此封装发布到 JitPack ，可以直接使用如下方式引入。**
+
+#### JitPack 引入方法
+##### 1. 在 Project 下的 build.gradle 添加
+```java
+allprojects {
+        repositories {
+            ...
+            maven { url 'https://jitpack.io' }
+        }
+    }
+```
+
+##### 2. 在 Module 下的 build.gradle 添加
+
+```java
+dependencies {
+            compile 'com.github.lishide:NoHttpConnecter:v1.0.0'
+    }
+```
+
+**其它界面继承 BaseActivity 或 BaseFragment，请求网络的方式跟上面的类似，多了几个参数而已。更多使用详见 simple。**
+
+```java
+...
+Request<String> request = NoHttp.createStringRequest(url, RequestMethod.GET);
+request.add("name", "name")
+request(0, request, httpListener, true, true);
+```
+
+---
+
+
 ### 五大缓存模式
  - 1、Default 模式，实现 http304 重定向缓存
 
