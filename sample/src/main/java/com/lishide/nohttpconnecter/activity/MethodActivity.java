@@ -1,14 +1,12 @@
 package com.lishide.nohttpconnecter.activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.lishide.nohttpconnecter.R;
-import com.lishide.nohttputils.nohttp.HttpListener;
 import com.lishide.nohttpconnecter.utils.Constants;
+import com.lishide.nohttputils.nohttp.HttpListener;
 import com.yanzhenjie.nohttp.NoHttp;
 import com.yanzhenjie.nohttp.RequestMethod;
 import com.yanzhenjie.nohttp.rest.Request;
@@ -21,7 +19,6 @@ public class MethodActivity extends BaseActivity implements View.OnClickListener
 
     private Button mBtnGet;
     private Button mBtnPost;
-    private TextView mTvResult;
 
     @Override
     protected void initContentView(Bundle bundle) {
@@ -32,7 +29,6 @@ public class MethodActivity extends BaseActivity implements View.OnClickListener
     protected void initView() {
         mBtnGet = (Button) findViewById(R.id.btn_get);
         mBtnPost = (Button) findViewById(R.id.btn_post);
-        mTvResult = (TextView) findViewById(R.id.tv_result);
     }
 
     @Override
@@ -71,25 +67,24 @@ public class MethodActivity extends BaseActivity implements View.OnClickListener
         @Override
         public void onSucceed(int what, Response<String> response) {
             if (response.getHeaders().getResponseCode() == 501) {
-                Log.e("lishide", "请求成功, 服务器不支持的请求方法。");
-            } else if (RequestMethod.HEAD == response.request().getRequestMethod())// 请求方法为HEAD时没有响应内容
-                Log.e("lishide", "请求成功, 请求方式为HEAD, 没有响应内容。");
-            else if (response.getHeaders().getResponseCode() == 405) {
+                showMessageDialog(R.string.request_succeed, R.string.request_method_patch);
+            } else if (RequestMethod.HEAD == response.request().getRequestMethod()) {// 请求方法为HEAD时没有响应内容
+                showMessageDialog(R.string.request_succeed, R.string.request_method_head);
+            } else if (response.getHeaders().getResponseCode() == 405) {
                 List<String> allowList = response.getHeaders().getValues("Allow");
-                String allow = "服务器仅仅支持请求方法：%1$s";
+                String allow = getString(R.string.request_method_not_allow);
                 if (allowList != null && allowList.size() > 0) {
                     allow = String.format(Locale.getDefault(), allow, allowList.get(0));
                 }
-                Log.e("lishide", "请求成功：" + allow);
+                showMessageDialog(R.string.request_succeed, allow);
             } else {
-                Log.e("lishide", "请求成功：" + response.get());
-                mTvResult.setText("请求成功：" + response.get());
+                showMessageDialog(R.string.request_succeed, response.get());
             }
         }
 
         @Override
         public void onFailed(int what, Response<String> response) {
-            Log.e("lishide", "请求失败：" + response.getException().getMessage());
+            showMessageDialog(R.string.request_failed, response.getException().getMessage());
         }
     };
 }

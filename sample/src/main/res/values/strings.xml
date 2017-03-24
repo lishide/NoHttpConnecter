@@ -26,6 +26,11 @@
     <string name="request_succeed">请求成功</string>
     <string name="request_failed">请求失败</string>
 
+    <!-- RequestMethod -->
+    <string name="request_method_head">请求方法为HEAD，没有响应内容。</string>
+    <string name="request_method_patch">服务器不支持的请求方法。</string>
+    <string name="request_method_not_allow">服务器仅仅支持请求方法：%1$s</string>
+
     <!-- CacheStore -->
     <string name="request_from_cache">结果来自缓存</string>
     <string name="request_from_network">结果来自网络</string>

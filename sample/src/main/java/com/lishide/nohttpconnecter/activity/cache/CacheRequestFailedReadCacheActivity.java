@@ -16,7 +16,7 @@ import com.yanzhenjie.nohttp.rest.Request;
 import com.yanzhenjie.nohttp.rest.Response;
 
 /**
- * <p>请求网络失败后去读取缓存。</p>
+ * <p>请求网络失败后去读取缓存</p>
  */
 public class CacheRequestFailedReadCacheActivity extends BaseActivity implements View.OnClickListener {
 
@@ -55,7 +55,7 @@ public class CacheRequestFailedReadCacheActivity extends BaseActivity implements
     }
 
     /**
-     * 请求String。
+     * 请求 String
      */
     private void requestString() {
         Request<String> request = NoHttp.createStringRequest(Constants.URL_NOHTTP_METHOD);
@@ -83,7 +83,7 @@ public class CacheRequestFailedReadCacheActivity extends BaseActivity implements
     };
 
     /**
-     * 请求Image。
+     * 请求 Image
      */
     private void requestImage() {
         Request<Bitmap> request = NoHttp.createImageRequest(Constants.URL_NOHTTP_IMAGE);
@@ -108,17 +108,4 @@ public class CacheRequestFailedReadCacheActivity extends BaseActivity implements
         }
     };
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.menu_cache_reqeust_failed_read_cache, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    protected boolean onOptionsItemSelectedCompat(MenuItem item) {
-//        if (item.getItemId() == R.id.menu_cache_act_request_failed_read_cache) {
-//            showMessageDialog(R.string.tip, R.string.request_cache_request_failed_read_cache_tip);
-//        }
-//        return true;
-//    }
 }
