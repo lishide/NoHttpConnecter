@@ -58,7 +58,7 @@ public class HttpsActivity extends BaseActivity implements View.OnClickListener,
         // 主要是需要一个SocketFactory对象，这个对象是java通用的，具体用法还请Google、Baidu。
         if (sslContext != null)
             httpsRequest.setSSLSocketFactory(sslContext.getSocketFactory());
-        request(0, httpsRequest, this, false, true);
+        startRequest(0, httpsRequest, this, false, true);
     }
 
     /**
@@ -71,7 +71,7 @@ public class HttpsActivity extends BaseActivity implements View.OnClickListener,
         if (sslContext != null)
             httpsRequest.setSSLSocketFactory(sslContext.getSocketFactory());
         httpsRequest.setHostnameVerifier(SSLContextUtil.HOSTNAME_VERIFIER);
-        request(0, httpsRequest, this, false, true);
+        startRequest(0, httpsRequest, this, false, true);
     }
 
     @Override

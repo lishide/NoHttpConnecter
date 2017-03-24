@@ -59,7 +59,7 @@ public class CacheOnlyRequestNetworkActivity extends BaseActivity implements Vie
         request.setCacheKey("CacheKeyOnlyRequestNetworkString");//
         // 这里的key是缓存数据的主键，默认是url，使用的时候要保证全局唯一，否则会被其他相同url数据覆盖。
         request.setCacheMode(CacheMode.ONLY_REQUEST_NETWORK);// ONLY_REQUEST_NETWORK表示仅仅请求网络，不会读取缓存，但是数据可能被缓存。
-        request(0, request, stringHttpListener, false, true);
+        startRequest(0, request, stringHttpListener, false, true);
     }
 
     private HttpListener<String> stringHttpListener = new HttpListener<String>() {
@@ -84,7 +84,7 @@ public class CacheOnlyRequestNetworkActivity extends BaseActivity implements Vie
         request.setCacheKey("CacheKeyOnlyRequestNetworkImage");//
         // 这里的key是缓存数据的主键，默认是url，使用的时候要保证全局唯一，否则会被其他相同url数据覆盖。
         request.setCacheMode(CacheMode.ONLY_REQUEST_NETWORK);// ONLY_REQUEST_NETWORK表示仅仅请求网络，不会读取缓存，但是数据可能被缓存。
-        request(0, request, imageHttpListener, false, true);
+        startRequest(0, request, imageHttpListener, false, true);
     }
 
     private HttpListener<Bitmap> imageHttpListener = new HttpListener<Bitmap>() {

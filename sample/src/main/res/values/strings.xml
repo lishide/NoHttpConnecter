@@ -40,7 +40,7 @@
     <string name="upload_error">上传发生错误</string>
     <!-- Upload -->
     <string name="upload_request_demo">上传文件示例</string>
-    <string name="upload_request_test">附我公司上传方法，详见代码和注释</string>
+    <string name="upload_request_test">附本人用上传方法，详见代码和注释</string>
     <!-- Download -->
     <string name="upload_file_status">文件状态：</string>
     <string name="upload_file_status_wait">等待操作&#8230;</string>

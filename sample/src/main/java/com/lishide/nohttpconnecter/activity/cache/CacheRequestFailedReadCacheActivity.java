@@ -65,7 +65,7 @@ public class CacheRequestFailedReadCacheActivity extends BaseActivity implements
         // 这里的key是缓存数据的主键，默认是url，使用的时候要保证全局唯一，否则会被其他相同url数据覆盖。
         request.setCacheMode(CacheMode.REQUEST_NETWORK_FAILED_READ_CACHE);
         //设置为REQUEST_NETWORK_FAILED_READ_CACHE表示请求服务器失败，就返回上次的缓存，如果缓存为空才会请求失败。
-        request(0, request, stringHttpListener, false, true);
+        startRequest(0, request, stringHttpListener, false, true);
     }
 
     private HttpListener<String> stringHttpListener = new HttpListener<String>() {
@@ -91,7 +91,7 @@ public class CacheRequestFailedReadCacheActivity extends BaseActivity implements
         // 这里的key是缓存数据的主键，默认是url，使用的时候要保证全局唯一，否则会被其他相同url数据覆盖。
         request.setCacheMode(CacheMode.REQUEST_NETWORK_FAILED_READ_CACHE);
         //设置为REQUEST_NETWORK_FAILED_READ_CACHE表示请求服务器失败，就返回上次的缓存，如果缓存为空才会请求失败。
-        request(0, request, imageHttpListener, false, true);
+        startRequest(0, request, imageHttpListener, false, true);
     }
 
     private HttpListener<Bitmap> imageHttpListener = new HttpListener<Bitmap>() {

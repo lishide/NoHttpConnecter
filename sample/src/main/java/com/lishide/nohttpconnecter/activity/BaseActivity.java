@@ -54,7 +54,7 @@ public abstract class BaseActivity extends AppCompatActivity {
      * @param isLoading 实现显示加载框。
      * @param <T>       想请求到的数据类型。
      */
-    public <T> void request(int what, Request<T> request, HttpListener<T> callback,
+    public <T> void startRequest(int what, Request<T> request, HttpListener<T> callback,
                             boolean canCancel, boolean isLoading) {
         // 这里设置一个sign给这个请求
         request.setCancelSign(object);

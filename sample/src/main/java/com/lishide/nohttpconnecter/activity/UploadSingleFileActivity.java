@@ -169,7 +169,7 @@ public class UploadSingleFileActivity extends BaseActivity implements View.OnCli
         request.add("image0", binary);// 添加1个文件
 //            request.add("image1", fileBinary1);// 添加2个文件
 
-        request(0, request, httpListener, false, true);
+        startRequest(0, request, httpListener, false, true);
     }
 
     private HttpListener<String> httpListener = new HttpListener<String>() {
@@ -227,7 +227,7 @@ public class UploadSingleFileActivity extends BaseActivity implements View.OnCli
         binary.setUploadListener(WHAT_UPLOAD_SINGLE, mOnUploadListener);
 
         request.add("uploadedfile", binary);
-        request(0, request, httpListener, false, true);
+        startRequest(0, request, httpListener, false, true);
         /*<?php
             $filename = '';
             if(isset($_REQUEST['name'])){

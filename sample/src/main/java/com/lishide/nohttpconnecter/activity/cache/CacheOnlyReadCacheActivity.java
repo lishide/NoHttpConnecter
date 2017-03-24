@@ -59,7 +59,7 @@ public class CacheOnlyReadCacheActivity extends BaseActivity implements View.OnC
         request.setCacheKey("CacheKeyRequestNetworkFailedReadCacheString")
                 // 这里的key是缓存数据的主键，默认是url，使用的时候要保证全局唯一，否则会被其他相同url数据覆盖。
                 .setCacheMode(CacheMode.ONLY_READ_CACHE);//ONLY_READ_CACHE表示仅仅读取缓存，无论如何都不会请求网络。
-        request(0, request, stringHttpListener, false, true);
+        startRequest(0, request, stringHttpListener, false, true);
     }
 
     private HttpListener<String> stringHttpListener = new HttpListener<String>() {
@@ -88,7 +88,7 @@ public class CacheOnlyReadCacheActivity extends BaseActivity implements View.OnC
         request.setCacheKey("CacheKeyRequestNetworkFailedReadCacheImage");//
         // 这里的key是缓存数据的主键，默认是url，使用的时候要保证全局唯一，否则会被其他相同url数据覆盖。
         request.setCacheMode(CacheMode.ONLY_READ_CACHE);//ONLY_READ_CACHE表示仅仅读取缓存，无论如何都不会请求网络。
-        request(0, request, imageHttpListener, false, true);
+        startRequest(0, request, imageHttpListener, false, true);
     }
 
     private HttpListener<Bitmap> imageHttpListener = new HttpListener<Bitmap>() {

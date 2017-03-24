@@ -60,7 +60,7 @@ public class CacheNoneCacheRequestNetWorkActivity extends BaseActivity implement
         // 这里的key是缓存数据的主键，默认是url，使用的时候要保证全局唯一，否则会被其他相同url数据覆盖。
         request.setCacheMode(CacheMode.NONE_CACHE_REQUEST_NETWORK);
         //设置为NONE_CACHE_REQUEST_NETWORK表示先去读缓存，如果没有缓存才请求服务器。
-        request(0, request, stringHttpListener, false, true);
+        startRequest(0, request, stringHttpListener, false, true);
     }
 
     private HttpListener<String> stringHttpListener = new HttpListener<String>() {
@@ -86,7 +86,7 @@ public class CacheNoneCacheRequestNetWorkActivity extends BaseActivity implement
         // 这里的key是缓存数据的主键，默认是url，使用的时候要保证全局唯一，否则会被其他相同url数据覆盖。
         request.setCacheMode(CacheMode.NONE_CACHE_REQUEST_NETWORK);
         //设置为NONE_CACHE_REQUEST_NETWORK表示先去读缓存，如果没有缓存才请求服务器。
-        request(0, request, imageHttpListener, false, true);
+        startRequest(0, request, imageHttpListener, false, true);
     }
 
     private HttpListener<Bitmap> imageHttpListener = new HttpListener<Bitmap>() {

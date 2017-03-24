@@ -62,7 +62,7 @@ public class MethodActivity extends BaseActivity implements View.OnClickListener
             request.add("userSex", '1');// char类型，还支持其它类型
 
             // 添加到请求队列
-            request(0, request, httpListener, true, true);
+            startRequest(0, request, httpListener, true, true);
         }
     }
 
