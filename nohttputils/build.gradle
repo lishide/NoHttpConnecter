@@ -3,14 +3,15 @@ apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.github.dcendents.android-maven'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration.androidCompileSdkVersion
+    buildToolsVersion globalConfiguration.androidBuildToolsVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion globalConfiguration.androidMinSdkVersion
+        targetSdkVersion globalConfiguration.androidTargetSdkVersion
+        versionCode globalConfiguration.versionCode
+        versionName globalConfiguration.versionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -32,10 +33,14 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.2.0'
     testCompile 'junit:junit:4.12'
+    def androidDps = rootProject.ext.androidDependencies
+    def viewDps = rootProject.ext.viewDependencies
+    def dataDps = rootProject.ext.dataDependencies
+    compile androidDps.appcompat_v7
+
     // NoHttp
-    compile 'com.yanzhenjie.nohttp:okhttp:1.1.1'
+    compile dataDps.nohttp
     // Android 6.0 以上权限申请
-    compile 'com.yanzhenjie:permission:1.0.5'
+    compile dataDps.yzjpermission
 }

@@ -2,14 +2,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration.androidCompileSdkVersion
+    buildToolsVersion globalConfiguration.androidBuildToolsVersion
     defaultConfig {
-        applicationId "com.lishide.nohttpconnecter"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        applicationId globalConfiguration.applicationId
+        minSdkVersion globalConfiguration.androidMinSdkVersion
+        targetSdkVersion globalConfiguration.androidTargetSdkVersion
+        versionCode globalConfiguration.versionCode
+        versionName globalConfiguration.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -29,17 +30,22 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.2.0'
     testCompile 'junit:junit:4.12'
     compile project(':nohttputils')
-    compile 'com.android.support:support-v4:25.2.0'
-    compile 'com.android.support:design:25.2.0'
-    compile 'com.android.support:recyclerview-v7:25.2.0'
-    compile 'com.android.support:cardview-v7:25.2.0'
+    def androidDps = rootProject.ext.androidDependencies
+    def viewDps = rootProject.ext.viewDependencies
+    def dataDps = rootProject.ext.dataDependencies
+    compile androidDps.appcompat_v7
+    compile androidDps.support_v4
+    compile androidDps.design
+    compile androidDps.recyclerView
+    compile androidDps.cardview_v7
+
     //图片/视频文件选择器
-    compile 'cn.finalteam.rxgalleryfinal:library:0.0.3'
+    compile viewDps.rxgalleryfinal
     //图片压缩
-    compile 'top.zibin:Luban:1.0.9'
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile viewDps.luban
+    //图片加载库 Glide
+    compile dataDps.glide
 
 }
