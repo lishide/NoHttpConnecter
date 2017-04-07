@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     def globalConfiguration = rootProject.extensions.getByName("ext")
@@ -41,6 +42,8 @@ dependencies {
     compile androidDps.recyclerView
     compile androidDps.cardview_v7
 
+    //相册选图、画廊预览
+    compile viewDps.yzjalbum
     //图片/视频文件选择器
     compile viewDps.rxgalleryfinal
     //图片压缩
@@ -48,4 +51,7 @@ dependencies {
     //图片加载库 Glide
     compile dataDps.glide
 
+    // view bind
+    compile viewDps.butterknife
+    apt viewDps.apt_butterknife
 }

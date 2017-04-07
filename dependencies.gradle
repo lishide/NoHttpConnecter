@@ -12,8 +12,10 @@ ext {
     constraintLayout = '1.0.2'
 
     //ViewLibraries
+    yzjalbum = '1.0.3'
     rxgalleryfinal = '0.0.3'
     luban = '1.0.9'
+    butterKnifeVer = '8.5.1'
 
     //DataLibraries
     glide = '3.7.0'
@@ -30,11 +32,18 @@ ext {
     ]
 
     viewDependencies = [
+            //相册选图、画廊预览
+            yzjalbum: "com.yanzhenjie:album:${yzjalbum}",
+
             //图片/视频文件选择器
             rxgalleryfinal: "cn.finalteam.rxgalleryfinal:library:${rxgalleryfinal}",
 
             //图片压缩
             luban         : "top.zibin:Luban:${luban}",
+
+            // view bind
+            apt_butterknife : "com.jakewharton:butterknife-compiler:${butterKnifeVer}",
+            butterknife    : "com.jakewharton:butterknife:${butterKnifeVer}",
     ]
 
     dataDependencies = [

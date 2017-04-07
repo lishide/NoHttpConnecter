@@ -32,4 +32,12 @@
         <item>仅仅读取缓存，不去请求网络。没有缓存认为失败，异常类型为：NotFoundCacheError。</item>
         <item>仅仅请求网络，请求网络时不会添加缓存头，请求回来的数据跟Http协议是否缓存。</item>
     </string-array>
+
+    <!--文件上传列表-->
+    <string-array name="activity_upload">
+        <item>上传单个文件</item>
+        <item>上传多个文件</item>
+        <item>上传文件 List</item>
+        <item>从相册选择图片上传</item>
+    </string-array>
 </resources>

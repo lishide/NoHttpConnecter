@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.lishide.nohttpconnecter.R;
 import com.lishide.nohttpconnecter.activity.cache.CacheActivity;
+import com.lishide.nohttpconnecter.activity.upload.UploadActivity;
 import com.lishide.nohttpconnecter.adapter.RvMultiAdapter;
 import com.lishide.nohttpconnecter.entity.ListItemInfo;
 import com.lishide.nohttpconnecter.listener.OnItemClickListener;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(mContext, HttpsActivity.class);
                 break;
             case 3:// 文件上传
-                intent = new Intent(mContext, UploadSingleFileActivity.class);
+                intent = new Intent(mContext, UploadActivity.class);
                 break;
             case 4:// 文件下载
                 intent = new Intent(mContext, DownloadFileActivity.class);

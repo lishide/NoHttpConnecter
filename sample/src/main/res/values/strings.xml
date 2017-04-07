@@ -15,6 +15,7 @@
     <string name="title_cache_none_request_network_activity">没有缓存才去请求网络</string>
     <string name="title_cache_only_read_cache">仅仅读取缓存</string>
     <string name="title_cache_only_request_network">仅仅请求网络</string>
+    <string name="title_upload_activity">文件上传</string>
 
     <!-- Common -->
     <string name="request_start">发起请求</string>
@@ -38,11 +39,14 @@
     <string name="request_cache_only_read_cache_failed">缓存模式是Only_Read_Cache，但是没有找到缓存。</string>
 
     <!-- Upload and download -->
+    <string name="upload_file_select_album">选择图片</string>
     <string name="upload_start">开始上传</string>
     <string name="upload_succeed">上传完毕</string>
     <string name="upload_failed">上传失败</string>
     <string name="upload_cancel">上传被取消</string>
     <string name="upload_error">上传发生错误</string>
+    <string name="upload_file_select_album_null">请选择图片</string>
+    <string name="upload_file_select_album_null_again">文件不存在，请重新选择图片</string>
     <!-- Upload -->
     <string name="upload_request_demo">上传文件示例</string>
     <string name="upload_request_test">附本人用上传方法，详见代码和注释</string>

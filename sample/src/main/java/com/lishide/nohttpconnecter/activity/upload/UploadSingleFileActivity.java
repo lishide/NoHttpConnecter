@@ -1,4 +1,4 @@
-package com.lishide.nohttpconnecter.activity;
+package com.lishide.nohttpconnecter.activity.upload;
 
 import android.Manifest;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.lishide.nohttpconnecter.R;
+import com.lishide.nohttpconnecter.activity.BaseActivity;
 import com.lishide.nohttpconnecter.config.AppConfig;
 import com.lishide.nohttpconnecter.utils.Constants;
 import com.lishide.nohttputils.nohttp.HttpListener;
