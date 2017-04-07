@@ -80,7 +80,7 @@ public class UploadAlbumActivity extends BaseActivity {
 
     @Override
     protected void initLogic() {
-        mToolbar.setTitle("选择相册图片上传");
+        mToolbar.setTitle(getString(R.string.title_upload_album_activity));
     }
 
     /**
@@ -170,18 +170,20 @@ public class UploadAlbumActivity extends BaseActivity {
 
         request.add("userHead", fileBinary0);// 添加1个文件
 
-        startRequest(0, request, new HttpListener<String>() {
-            @Override
-            public void onSucceed(int what, Response<String> response) {
-                showMessageDialog(R.string.request_succeed, response.get());
-            }
-
-            @Override
-            public void onFailed(int what, Response<String> response) {
-                showMessageDialog(R.string.request_failed, response.getException().getMessage());
-            }
-        }, false, true);
+        startRequest(0, request, httpListener, false, true);
     }
+
+    private HttpListener<String> httpListener = new HttpListener<String>() {
+        @Override
+        public void onSucceed(int what, Response<String> response) {
+            showMessageDialog(R.string.request_succeed, response.get());
+        }
+
+        @Override
+        public void onFailed(int what, Response<String> response) {
+            showMessageDialog(R.string.request_failed, response.getException().getMessage());
+        }
+    };
 
     /**
      * 文件上传监听

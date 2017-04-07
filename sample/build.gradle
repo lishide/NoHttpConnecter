@@ -44,8 +44,6 @@ dependencies {
 
     //相册选图、画廊预览
     compile viewDps.yzjalbum
-    //图片/视频文件选择器
-    compile viewDps.rxgalleryfinal
     //图片压缩
     compile viewDps.luban
     //图片加载库 Glide

@@ -16,6 +16,8 @@
     <string name="title_cache_only_read_cache">仅仅读取缓存</string>
     <string name="title_cache_only_request_network">仅仅请求网络</string>
     <string name="title_upload_activity">文件上传</string>
+    <string name="title_upload_album_activity">选择相册图片上传</string>
+    <string name="title_upload_album_demo_activity">图片（或其他类型文件）上传示例</string>
 
     <!-- Common -->
     <string name="request_start">发起请求</string>

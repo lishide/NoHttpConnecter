@@ -39,5 +39,15 @@
         <item>上传多个文件</item>
         <item>上传文件 List</item>
         <item>从相册选择图片上传</item>
+        <item>图片（或其他类型文件）上传示例</item>
+    </string-array>
+    <string-array name="activity_upload_des">
+        <item>上传单个文件</item>
+        <item>上传多个文件</item>
+        <item>上传文件 List</item>
+        <item>从相册选择图片上传</item>
+        <item>附本人用上传方法，详见代码和注释，包括 Android 端上传方式及 API，
+            本功能以图片上传为例，使用严大的 Album 开源相册作为图片选取工具，
+            其他文件上传方式与此类似，打开相应的系统文件管理软件选择文件即可。</item>
     </string-array>
 </resources>

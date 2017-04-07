@@ -43,8 +43,9 @@ public class UploadActivity extends BaseActivity {
     protected void initView() {
         List<ListItemInfo> listItems = new ArrayList<>();
         String[] titles = getResources().getStringArray(R.array.activity_upload);
+        String[] titlesDes = getResources().getStringArray(R.array.activity_upload_des);
         for (int i = 0; i < titles.length; i++) {
-            listItems.add(new ListItemInfo(titles[i], ""));
+            listItems.add(new ListItemInfo(titles[i], titlesDes[i]));
         }
         RecyclerView mRvUpload = ButterKnife.findById(this, R.id.rv_upload_activity);
         mRvUpload.setLayoutManager(new LinearLayoutManager(this));
@@ -103,6 +104,9 @@ public class UploadActivity extends BaseActivity {
                 break;
             case 3:// 从相册选择图片上传
                 intent = new Intent(this, UploadAlbumActivity.class);
+                break;
+            case 4:// 图片（或其他类型文件）上传示例
+                intent = new Intent(this, UploadAlbumDemoActivity.class);
                 break;
             default:
                 break;

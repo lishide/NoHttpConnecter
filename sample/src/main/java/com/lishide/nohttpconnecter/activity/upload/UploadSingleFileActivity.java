@@ -26,13 +26,6 @@ import com.yanzhenjie.permission.PermissionListener;
 import java.io.File;
 import java.util.List;
 
-import cn.finalteam.rxgalleryfinal.RxGalleryFinal;
-import cn.finalteam.rxgalleryfinal.imageloader.ImageLoaderType;
-import cn.finalteam.rxgalleryfinal.rxbus.RxBusResultSubscriber;
-import cn.finalteam.rxgalleryfinal.rxbus.event.ImageRadioResultEvent;
-import top.zibin.luban.Luban;
-import top.zibin.luban.OnCompressListener;
-
 /**
  * <p>上传单个文件</p>
  */
@@ -52,10 +45,6 @@ public class UploadSingleFileActivity extends BaseActivity implements View.OnCli
      */
     private ProgressBar mPbProgress;
     private Button mBtnUploadDemo;
-    private Button mBtnUploadTest;
-    private String imgOriPath;
-    private String picName;
-    private String imgLsFile; // Luban 压缩后图片绝对路径
 
     @Override
     protected void initContentView(Bundle bundle) {
@@ -65,7 +54,6 @@ public class UploadSingleFileActivity extends BaseActivity implements View.OnCli
     @Override
     protected void initView() {
         mBtnUploadDemo = (Button) findViewById(R.id.btn_upload_request_demo);
-        mBtnUploadTest = (Button) findViewById(R.id.btn_upload_request_test);
         mTvResult = (TextView) findViewById(R.id.tv_result);
         mPbProgress = (ProgressBar) findViewById(R.id.pb_progress);
     }
@@ -75,7 +63,6 @@ public class UploadSingleFileActivity extends BaseActivity implements View.OnCli
         mToolbar.setTitle("单个文件上传");
 
         mBtnUploadDemo.setOnClickListener(this);
-        mBtnUploadTest.setOnClickListener(this);
     }
 
     @Override
@@ -90,58 +77,7 @@ public class UploadSingleFileActivity extends BaseActivity implements View.OnCli
                             .requestCode(100)
                             .send();
                 break;
-            case R.id.btn_upload_request_test:
-                RxGalleryFinal
-                        .with(context)
-                        .image()
-                        .radio()
-                        .crop()
-                        .imageLoader(ImageLoaderType.GLIDE)
-                        .subscribe(new RxBusResultSubscriber<ImageRadioResultEvent>() {
-                            @Override
-                            protected void onEvent(ImageRadioResultEvent imageRadioResultEvent)
-                                    throws Exception {
-                                imgOriPath = imageRadioResultEvent.getResult().getOriginalPath();
-                                picName = getFileName();
-
-                                compressWithLs(new File(imgOriPath));
-                            }
-                        })
-                        .openGallery();
-                break;
         }
-    }
-
-    private String getFileName() {
-        //UUID uuid = UUID.randomUUID();//生成随机文件名
-        long timeMillis = System.currentTimeMillis();
-        return "li_IMG_" + timeMillis + ".jpg";
-    }
-
-    /**
-     * 压缩单张图片 Listener 方式
-     */
-    private void compressWithLs(File file) {
-        Luban.get(this)
-                .load(file)
-                .putGear(Luban.THIRD_GEAR)
-                .setFilename(System.currentTimeMillis() + "")
-                .setCompressListener(new OnCompressListener() {
-                    @Override
-                    public void onStart() {
-                    }
-
-                    @Override
-                    public void onSuccess(File file) {
-                        imgLsFile = file.getAbsolutePath();
-                        uploadFileTest();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-                }).launch();
     }
 
     /**
@@ -215,54 +151,6 @@ public class UploadSingleFileActivity extends BaseActivity implements View.OnCli
             mTvResult.setText(R.string.upload_error);
         }
     };
-
-    /**
-     * 附：我公司使用的文件上传方式，提交参数（"uploadedfile", file）及PHP服务端接收文件的代码
-     * 另附一篇参考博文：http://www.jianshu.com/p/46758ea483dd
-     */
-    private void uploadFileTest() {
-        String url_upload_test_own = "http://api.magicmirrormedia.cn/market/up_file.php";
-        Request<String> request = NoHttp.createStringRequest(url_upload_test_own, RequestMethod.POST);
-
-        FileBinary binary = new FileBinary(new File(imgLsFile), picName);
-        binary.setUploadListener(WHAT_UPLOAD_SINGLE, mOnUploadListener);
-
-        request.add("uploadedfile", binary);
-        startRequest(0, request, httpListener, false, true);
-        /*<?php
-            $filename = '';
-            if(isset($_REQUEST['name'])){
-                $filename = $_REQUEST['name'];
-                $filename = $filename . '.' . strtolower(pathinfo($_FILES['uploadedfile']['name'], PATHINFO_EXTENSION));
-            }
-            $target_path  = "./img/";//接收文件目录
-            if($filename){
-                $target_path = $target_path . $filename;
-            }else{
-                $target_path = $target_path . basename( $_FILES['uploadedfile']['name']);
-            }
-
-            if(move_uploaded_file($_FILES['uploadedfile']['tmp_name'], $target_path)) {
-                //echo "The file ".  basename( $_FILES['uploadedfile']['name']). " has been uploaded";
-                //echo 0;
-                $result = 0;
-            }  else{
-                //echo "There was an error uploading the file, please try again!" . $_FILES['uploadedfile']['error'];
-                //echo 1;
-                $result = 1;
-            }
-
-            $arr = array(
-                    'result' => $result,
-                    'filename' => $filename
-        );
-
-            $strr = json_encode($arr);
-            echo($strr);
-
-        ?>
-        */
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
