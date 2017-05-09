@@ -130,7 +130,7 @@ allprojects {
 
 ```java
 dependencies {
-            compile 'com.github.lishide:NoHttpConnecter:v1.0.0'
+            compile 'com.github.lishide:NoHttpConnecter:v1.0.1'
     }
 ```
 
