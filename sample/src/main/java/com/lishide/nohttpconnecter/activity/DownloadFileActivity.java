@@ -179,7 +179,8 @@ public class DownloadFileActivity extends BaseActivity implements View.OnClickLi
                     AndPermission.with(this)
                             .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                             .requestCode(99)
-                            .send();
+                            .callback(permissionListener)
+                            .start();
                 }
                 break;
             case R.id.btn_single_delete_file:
@@ -193,7 +194,8 @@ public class DownloadFileActivity extends BaseActivity implements View.OnClickLi
                     AndPermission.with(this)
                             .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                             .requestCode(100)
-                            .send();
+                            .callback(permissionListener)
+                            .start();
                 }
                 break;
             case R.id.btn_multi_delete_file:
@@ -203,38 +205,38 @@ public class DownloadFileActivity extends BaseActivity implements View.OnClickLi
                     AndPermission.with(this)
                             .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                             .requestCode(101)
-                            .send();
+                            .callback(permissionListener)
+                            .start();
                 }
                 break;
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        AndPermission.onRequestPermissionsResult(requestCode, permissions, grantResults,
-                new PermissionListener() {
-                    @Override
-                    public void onSucceed(int requestCode, List<String> grantPermissions) {
-                        switch (requestCode) {
-                            case 99:
-                                downloadSingle();
-                                break;
-                            case 100:
-                                downloadMulti();
-                                break;
-                            case 101:
-                                deleteMulti();
-                                break;
-                        }
-                    }
+    /**
+     * 权限回调监听
+     */
+    private PermissionListener permissionListener = new PermissionListener() {
+        @Override
+        public void onSucceed(int requestCode, List<String> grantPermissions) {
+            switch (requestCode) {
+                case 99:
+                    downloadSingle();
+                    break;
+                case 100:
+                    downloadMulti();
+                    break;
+                case 101:
+                    deleteMulti();
+                    break;
 
-                    @Override
-                    public void onFailed(int requestCode, List<String> deniedPermissions) {
-                    }
-                });
-    }
+            }
+        }
+
+        @Override
+        public void onFailed(int requestCode, @NonNull List<String> deniedPermissions) {
+
+        }
+    };
 
     /**
      * 开始下载单个文件

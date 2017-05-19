@@ -29,7 +29,7 @@ NoHttp 开源框架地址：[https://github.com/yanzhenjie/NoHttp](https://githu
 #### 1. Gradle添加依赖（推荐）
 
 ```java
-compile 'com.yanzhenjie.nohttp:okhttp:1.1.1'
+compile 'com.yanzhenjie.nohttp:okhttp:1.1.2'
 ```
 
 #### 2. 需要的权限
@@ -115,6 +115,8 @@ NoHttp.initialize(this, new NoHttp.Config()
 
 **现已将此封装发布到 JitPack ，可以直接使用如下方式引入。**
 
+[![](https://jitpack.io/v/lishide/NoHttpConnecter.svg)](https://jitpack.io/#lishide/NoHttpConnecter)
+
 #### JitPack 引入方法
 ##### 1. 在 Project 下的 build.gradle 添加
 ```java
@@ -130,7 +132,7 @@ allprojects {
 
 ```java
 dependencies {
-            compile 'com.github.lishide:NoHttpConnecter:v1.0.1'
+            compile 'com.github.lishide:NoHttpConnecter:v1.0.2'
     }
 ```
 

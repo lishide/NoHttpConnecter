@@ -95,28 +95,26 @@ public class UploadAlbumActivity extends BaseActivity {
                 AndPermission.with(this)
                         .permission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                         .requestCode(100)
-                        .send();
+                        .callback(permissionListener)
+                        .start();
         } else if (v.getId() == R.id.btn_start) {
             upload();
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        AndPermission.onRequestPermissionsResult(requestCode, permissions, grantResults,
-                new PermissionListener() {
-                    @Override
-                    public void onSucceed(int requestCode, List<String> grantPermissions) {
-                        selectImageFormAlbum();
-                    }
+    /**
+     * 权限回调监听
+     */
+    private PermissionListener permissionListener = new PermissionListener() {
+        @Override
+        public void onSucceed(int requestCode, List<String> grantPermissions) {
+            selectImageFormAlbum();
+        }
 
-                    @Override
-                    public void onFailed(int requestCode, List<String> deniedPermissions) {
-                    }
-                });
-    }
+        @Override
+        public void onFailed(int requestCode, @NonNull List<String> deniedPermissions) {
+        }
+    };
 
     /**
      * 选择图片

@@ -4,8 +4,8 @@ ext {
     androidMinSdkVersion = 16
     androidTargetSdkVersion = 25
     androidCompileSdkVersion = 25
-    supportLibraryVersion = '25.3.0'
-    otherLibraryVersion = '25.3.0'
+    supportLibraryVersion = '25.3.1'
+    otherLibraryVersion = '25.3.1'
     applicationId = 'com.lishide.nohttpconnecter'
     versionCode = 1
     versionName = '1.0'
@@ -18,8 +18,8 @@ ext {
 
     //DataLibraries
     glide = '3.7.0'
-    nohttp = '1.1.1'
-    yzjpermission = '1.0.5'
+    nohttp = '1.1.2'
+    yzjpermission = '1.0.7'
 
     androidDependencies = [
             appcompat_v7    : "com.android.support:appcompat-v7:${supportLibraryVersion}",
