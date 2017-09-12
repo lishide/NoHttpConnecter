@@ -121,11 +121,11 @@ NoHttp.initialize(this, new NoHttp.Config()
 ##### 1. 在 Project 下的 build.gradle 添加
 ```java
 allprojects {
-        repositories {
-            ...
-            maven { url 'https://jitpack.io' }
-        }
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
     }
+}
 ```
 
 ##### 2. 在 Module 下的 build.gradle 添加
@@ -135,7 +135,7 @@ dependencies {
     compile 'com.github.lishide:NoHttpConnecter:v+latest version'
     //latest version 见上方 JitPack 图标所示，如：
     compile 'com.github.lishide:NoHttpConnecter:v1.0.2'
-    }
+}
 ```
 
 **其它界面继承 BaseActivity 或 BaseFragment，请求网络的方式跟上面的类似，多了几个参数而已。更多使用详见 simple。**
