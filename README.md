@@ -29,7 +29,7 @@ NoHttp 开源框架地址：[https://github.com/yanzhenjie/NoHttp](https://githu
 #### 1. Gradle添加依赖（推荐）
 
 ```java
-compile 'com.yanzhenjie.nohttp:okhttp:1.1.2'
+compile 'com.yanzhenjie.nohttp:okhttp:1.1.2' (可能非最新版)
 ```
 
 #### 2. 需要的权限
@@ -132,7 +132,9 @@ allprojects {
 
 ```java
 dependencies {
-            compile 'com.github.lishide:NoHttpConnecter:v1.0.2'
+    compile 'com.github.lishide:NoHttpConnecter:v+latest version'
+    //latest version 见上方 JitPack 图标所示，如：
+    compile 'com.github.lishide:NoHttpConnecter:v1.0.2'
     }
 ```
 
