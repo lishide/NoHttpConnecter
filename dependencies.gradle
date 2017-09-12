@@ -18,8 +18,8 @@ ext {
 
     //DataLibraries
     glide = '3.7.0'
-    nohttp = '1.1.2'
-    yzjpermission = '1.0.7'
+    nohttp = '1.1.4'
+    yzjpermission = '1.1.0'
 
     androidDependencies = [
             appcompat_v7    : "com.android.support:appcompat-v7:${supportLibraryVersion}",
