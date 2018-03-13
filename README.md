@@ -4,7 +4,7 @@
 首先对 NoHttp 网络框架做一个简介
 > Nohttp 是一个 Android Http 标准框架，底层可动态切换 OkHttp、URLConnection，与 RxJava 完美结合，支持缓存数据到数据库或 SD 卡（缓存数据自动加密），支持请求 Restful 风格的接口，比 Retrofit 更简单易用。
 
-> **Nohttp** 框架特性
+**Nohttp** 框架特性
 * 动态配置底层框架为 **OkHttp**、HttpURLConnection
 * 支持异步请求、支持同步请求
 * 多文件上传，支持大文件上传，表单提交数据
@@ -28,13 +28,13 @@ NoHttp 开源框架地址：[https://github.com/yanzhenjie/NoHttp](https://githu
 
 #### 1. Gradle添加依赖（推荐）
 
-```java
+``` groovy
 compile 'com.yanzhenjie.nohttp:okhttp:1.1.2' (可能非最新版)
 ```
 
 #### 2. 需要的权限
 
-```java
+``` xml
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.INTERNET" />
@@ -45,7 +45,7 @@ compile 'com.yanzhenjie.nohttp:okhttp:1.1.2' (可能非最新版)
 #### 3. 初始化
 初始化 NoHttp，并设置 NoHttp 底层采用那种网络框架去请求，建议把初始化方法放到 **Application** 中 *onCreate* 生命周期方法里面。还有别忘了在`manifest.xml`中注册`Application`。
 
-```java
+``` java
 //初始化 NoHttp
 NoHttp.initialize(this, new NoHttp.Config()
         .setConnectTimeout(30 * 1000)  // 设置全局连接超时时间，单位毫秒，默认10s。
@@ -67,7 +67,7 @@ NoHttp.initialize(this, new NoHttp.Config()
 
  - new 队列
 
-  ```java
+  ``` java
   RequestQueue requestQueue = NoHttp.newRequestQueue();
   ```
 
@@ -75,26 +75,26 @@ NoHttp.initialize(this, new NoHttp.Config()
 
   比如这样，
 
-  ```java
+  ``` java
   Request<String> request = NoHttp.createStringRequest(url, RequestMethod.GET);
   ```
 
   或者这样，
 
-  ```java
+  ``` java
   Request<JSONObject> objRequest = NoHttp.createJsonObjectRequest(url, RequestMethod.POST);
   ```
 
   ...等等（支持更多，如 JsonArray、Bitmap、byte[] 或自定义请求类型）。然后把需要的请求参数添加进来：
 
-  ```java
+  ``` java
   .add("name", "name") // String类型
   ...
   ```
 
  - 把请求添加到队列，完成请求
 
-  ```java
+  ``` java
   requestQueue.add(what, request, responseListener);
   ```
 
@@ -119,7 +119,7 @@ NoHttp.initialize(this, new NoHttp.Config()
 
 #### JitPack 引入方法
 ##### 1. 在 Project 下的 build.gradle 添加
-```java
+``` groovy
 allprojects {
     repositories {
         ...
@@ -130,7 +130,7 @@ allprojects {
 
 ##### 2. 在 Module 下的 build.gradle 添加
 
-```java
+``` groovy
 dependencies {
     compile 'com.github.lishide:NoHttpConnecter:v+latest version'
     //latest version 见上方 JitPack 图标所示，如：
@@ -140,7 +140,7 @@ dependencies {
 
 **其它界面继承 BaseActivity 或 BaseFragment，请求网络的方式跟上面的类似，多了几个参数而已。更多使用详见 simple。**
 
-```java
+``` java
 ...
 Request<String> request = NoHttp.createStringRequest(url, RequestMethod.GET);
 request.add("name", "name")
@@ -153,31 +153,31 @@ request(0, request, httpListener, true, true);
 ### 五大缓存模式
  - 1、Default 模式，实现 http304 重定向缓存
 
-  ```java
+  ``` java
   request.setCacheMode(CacheMode.DEFAULT);
   ```
 
  - 2、请求网络失败返回缓存
 
-  ```java
+  ``` java
   request.setCacheMode(CacheMode.REQUEST_NETWORK_FAILED_READ_CACHE);
   ```
 
  - 3、没有缓存才去请求网络
 
-  ```java
+  ``` java
   request.setCacheMode(CacheMode.NONE_CACHE_REQUEST_NETWORK);
   ```
 
  - 4、仅仅请求网络
 
-  ```java
+  ``` java
   request.setCacheMode(CacheMode.ONLY_REQUEST_NETWORK);
   ```
 
  - 5、仅仅读取缓存
 
-  ```java
+  ``` java
   request.setCacheMode(CacheMode.ONLY_READ_CACHE);
   ```
 
@@ -189,20 +189,20 @@ request(0, request, httpListener, true, true);
 
  - 发起下载请求
 
-  ```java
+  ``` java
   mDownloadRequest = NoHttp.createDownloadRequest(url, path, filename, true, true);
   downloadQueue.add(0, mDownloadRequest, downloadListener);
   ```
 
  - 暂停或者停止下载
 
-  ```java
+  ``` java
   mDownloadRequest.cancel();
   ```
 
  - 监听下载过程
 
-  ```java
+  ``` java
   private DownloadListener downloadListener = new DownloadListener() {
 
 	// 下载开始
@@ -242,7 +242,7 @@ request(0, request, httpListener, true, true);
 ### 文件上传
  - 1、单个文件上传
 
-  ```java
+  ``` java
   Request<String> request = NoHttp.createStringRequest(url, RequestMethod.POST);
   request.add("file", new FileBinary(file));
   ```
@@ -250,7 +250,7 @@ request(0, request, httpListener, true, true);
  - 2、多个文件上传（这里可以添加各种形式的文件，File、Bitmap、InputStream、ByteArray。）
 
  	- **多个Key多个文件形式**
-    ```java
+    ``` java
     Request<String> request = ...
     request.add("file1", new FileBinary(File));
     request.add("file2", new FileBinary(File));
@@ -261,7 +261,7 @@ request(0, request, httpListener, true, true);
 
  	- **一个Key多个文件形式**
 
-    ```java
+    ``` java
     Request<String> request = ...
     fileList.add("image", new FileBinary(File));
     fileList.add("image", new InputStreamBinary(InputStream));
@@ -271,7 +271,7 @@ request(0, request, httpListener, true, true);
 
 	或者：
 
-    ```java
+    ``` java
     Request<String> request = ...
     List<Binary> fileList = ...
     fileList.add(new FileBinary(File));
@@ -289,5 +289,3 @@ request(0, request, httpListener, true, true);
 **NoHttp —— 一个有情怀的网络框架 ，让你的网络请求更简单。**
 
 像上面说的一样，NoHttp 真的很强大、很好用，嗯，没错。
-
-未完待续。。。
